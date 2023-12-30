@@ -2,3 +2,13 @@ cd App
 npm i
 node index.js
 
+git init
+git add .
+#also created a gitignore file to ignore node modules
+git commit -m "app cloned"
+git branch -M main
+git remote add origin  https://github.com/theuppercaseguy/CS423-devops-Assignment2.git
+git push -u origin main
+
+
+
