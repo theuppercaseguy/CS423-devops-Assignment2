@@ -1,0 +1,9 @@
+name: "testing the latest push for validation"
+run-name: "execute by ${{ github.actor }} using ${{ github.event_name }} on ${{ github.repository }} repository"
+
+on:
+  pull_request:
+    branches:
+      - fix:
+  workflow_dispatch:    
+

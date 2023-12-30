@@ -1,0 +1,6 @@
+git checkout -b fix
+"build": "webpack --config=Scripts/config/webpack.prod.js",  //add this line in package.json
+npm install -D webpack-cli //to use npm run build
+npm run build
+npm run test
+npx eslint ./src/sum.js  ./src/cartview.js
