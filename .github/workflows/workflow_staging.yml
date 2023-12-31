@@ -22,21 +22,37 @@ jobs:
           command: |
             export NVM_DIR=/home/ubuntu/.nvm
             source /home/ubuntu/.nvm/nvm.sh
-            cd /home/ubuntu/devops/CS423-devops-Assignment2/
-            git pull
-            cd /home/ubuntu/devops/CS423-devops-Assignment2/App/
+            cd /home/ubuntu/CS423-devops-Assignment2/
+            git pull origin main
+            cd /home/ubuntu/CS423-devops-Assignment2/App/
             killall node
             npm start
 
       - name: Notify on success
         if: success()
-        run: echo "successfuly relaunched the website with the updates"
-
+        uses: dawidd6/action-send-mail@v3
+        with:
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          subject: Github Action Sucess
+          to: saadan06@gmail.com
+          from: saadan06@gmail.com
+          body: The Workflow of repo, ${{github.repository}} initiated by ${{github.actor}} was sucessfully executed.
+       
       - name: Notify on Failure
         if: failure()
-        run: echo "failed at launching the website, kindly launch this workflow again, or manually launch it"
-            
+        # run: echo "the test failed"
+        uses: dawidd6/action-send-mail@v3
+        with:
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          subject: Github Action Failure
+          to: saadan06@gmail.com
+          from: saadan06@gmail.com
+          body: The Workflow of repo ${{github.repository}} initiated by ${{github.actor}} failed, kindly check the workflow logs!
 
-
-            
 
