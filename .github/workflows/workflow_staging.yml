@@ -1,0 +1,39 @@
+name: "pushing the succesfull changes from fix branch to main branch and restarting the server "
+run-name: "the push was started by ${{ github.actor }} by the #{{ github.event_name }} event on #{{ github.repository }} repo."
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out
+        uses: actions/checkout@v4
+
+      - name: "restarting the aws staging server with the changes" 
+        uses: JimCronqvist/action-ssh@master
+        with:
+          hosts: 'ubuntu@54.193.22.203'
+          privatekey: ${{secrets.EC2_testing_staging_SERVER_SSH_ACCESS}}
+          command: |
+            export NVM_DIR=/home/ubuntu/.nvm
+            source /home/ubuntu/.nvm/nvm.sh
+            cd /home/ubuntu/devops/CS423-devops-Assignment2/
+            git pull
+            cd /home/ubuntu/devops/CS423-devops-Assignment2/App/
+            killall node
+            npm start
+
+      - name: Notify on success
+        if: success()
+        run: echo "successfuly relaunched the website with the updates"
+
+      - name: Notify on Failure
+        if: failure()
+        run: echo "failed at launching the website, kindly launch this workflow again, or manually launch it"
+            
+
