@@ -24,7 +24,7 @@ jobs:
             source /home/ubuntu/.nvm/nvm.sh
             cd /home/ubuntu/CS423-devops-Assignment2/
             git pull origin main
-            cd /home/ubuntu/CS423-devops-Assignment2/App/
+            cd App/
             killall node
             npm start
 
