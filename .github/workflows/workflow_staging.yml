@@ -29,30 +29,31 @@ jobs:
             npm start
 
       - name: Notify on success
+        run: echo "the staging succeeded"
         if: success()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          subject: Github Action Sucess
-          to: saadan06@gmail.com
-          from: saadan06@gmail.com
-          body: The Workflow of repo, ${{github.repository}} initiated by ${{github.actor}} was sucessfully executed.
+        # uses: dawidd6/action-send-mail@v3
+        # with:
+        #   connection_url: ${{secrets.MAIL_CONNECTION}}
+        #   server_address: smtp.gmail.com
+        #   server_port: 465
+        #   secure: true
+        #   subject: Github Action Sucess
+        #   to: saadan06@gmail.com
+        #   from: saadan06@gmail.com
+        #   body: The Workflow of repo, ${{github.repository}} initiated by ${{github.actor}} was sucessfully executed.
        
       - name: Notify on Failure
         if: failure()
-        # run: echo "the test failed"
-        uses: dawidd6/action-send-mail@v3
-        with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          subject: Github Action Failure
-          to: saadan06@gmail.com
-          from: saadan06@gmail.com
-          body: The Workflow of repo ${{github.repository}} initiated by ${{github.actor}} failed, kindly check the workflow logs!
+        run: echo "the staging failed"
+        # uses: dawidd6/action-send-mail@v3
+        # with:
+        #   connection_url: ${{secrets.MAIL_CONNECTION}}
+        #   server_address: smtp.gmail.com
+        #   server_port: 465
+        #   secure: true
+        #   subject: Github Action Failure
+        #   to: saadan06@gmail.com
+        #   from: saadan06@gmail.com
+        #   body: The Workflow of repo ${{github.repository}} initiated by ${{github.actor}} failed, kindly check the workflow logs!
 
 
