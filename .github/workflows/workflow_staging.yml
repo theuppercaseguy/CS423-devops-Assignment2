@@ -1,5 +1,5 @@
 name: "pushing the succesfull changes from fix branch to main branch and restarting the server "
-run-name: "the push was started by ${{ github.actor }} by the #{{ github.event_name }} event on #{{ github.repository }} repo."
+run-name: "the push was started by ${{ github.actor }} by the ${{ github.event_name }} event on ${{ github.repository }} repo."
 
 on:
   push:
