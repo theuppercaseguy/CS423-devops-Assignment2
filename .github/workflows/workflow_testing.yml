@@ -22,7 +22,7 @@ jobs:
           command: |
             export NVM_DIR=/home/ubuntu/.nvm
             source /home/ubuntu/.nvm/nvm.sh
-            cd /home/ubuntu/CS423-devops-Assignment3/App/
+            cd /home/ubuntu/devops/CS423-devops-Assignment3/App/
             git checkout fix
             git pull origin fix
             npm run build-react
