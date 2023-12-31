@@ -56,7 +56,3 @@ jobs:
         #   to: saadan06@gmail.com
         #   from: saadan06@gmail.com
         #   body: The Workflow of repo ${{github.repository}} initiated by ${{github.actor}} failed, kindly check the workflow logs!
-
-
-smtp://user:
-
