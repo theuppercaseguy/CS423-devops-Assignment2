@@ -26,7 +26,9 @@ jobs:
             git pull origin main
             cd App/
             killall node
-            npm start
+            # npm start
+            forever start index.js
+
 
       - name: Notify on success
         run: echo "the staging succeeded"
