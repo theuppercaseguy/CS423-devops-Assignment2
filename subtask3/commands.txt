@@ -4,3 +4,6 @@ npm install -D webpack-cli //to use npm run build
 npm run build
 npm run test
 npx eslint ./src/sum.js  ./src/cartview.js
+
+npm install forever -g //to run the node in background
+

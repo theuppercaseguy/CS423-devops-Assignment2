@@ -17,12 +17,12 @@ jobs:
       - name: "restarting the aws staging server with the changes" 
         uses: JimCronqvist/action-ssh@master
         with:
-          hosts: 'ubuntu@54.193.22.203'
+          hosts: 'ubuntu@54.193.18.253'
           privatekey: ${{secrets.EC2_testing_staging_SERVER_SSH_ACCESS}}
           command: |
             export NVM_DIR=/home/ubuntu/.nvm
             source /home/ubuntu/.nvm/nvm.sh
-            cd /home/ubuntu/CS423-devops-Assignment2/
+            cd /home/ubuntu/devops/CS423-devops-Assignment2/
             git pull origin main
             cd App/
             killall node

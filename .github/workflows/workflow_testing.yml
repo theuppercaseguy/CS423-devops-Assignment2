@@ -17,12 +17,12 @@ jobs:
       - name: Running tests on aws testing server
         uses: JimCronqvist/action-ssh@master
         with:
-          hosts: 'ubuntu@54.153.83.198'
+          hosts: 'ubuntu@54.177.199.104'
           privatekey: ${{secrets.EC2_testing_staging_SERVER_SSH_ACCESS}}
           command: |
             export NVM_DIR=/home/ubuntu/.nvm
             source /home/ubuntu/.nvm/nvm.sh
-            cd /home/ubuntu/devops/CS423-devops-Assignment2/App/
+            cd /home/ubuntu/devops/CS423-devops-Assignment3/App/
             git checkout fix
             git pull origin fix
             npm run build-react
