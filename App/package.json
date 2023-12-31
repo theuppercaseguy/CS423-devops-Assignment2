@@ -23,8 +23,9 @@
     "start-node": "DISABLE_ESLINT_PLUGIN=true node index.js",
     "test-react": "DISABLE_ESLINT_PLUGIN=true react-scripts test --coverage --watchAll=false --env=jsdom",
     "test-API": "jest --runInBand --testTimeout 999999 --collectCoverage true api_endpoint.test.js",
-    "test": "DISABLE_ESLINT_PLUGIN=true react-scripts test src/todoTitle.mock.test.js",
-    "start": "DISABLE_ESLINT_PLUGIN=true node index.js"
+    "test": "react-scripts test src/todoTitle.mock.test.js",
+    "start": "node index.js",
+    "build": "webpack --config=Scripts/config/webpack.prod.js"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,7 @@
     "eslint": "^8.54.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "supertest": "^6.2.2"
+    "supertest": "^6.2.2",
+    "webpack-cli": "^5.1.4"
   }
 }
