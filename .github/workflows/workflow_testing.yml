@@ -1,4 +1,4 @@
-name: "testing the latest push for validation"
+name: "testing the latest pull request for validation"
 run-name: "execute by ${{ github.actor }} using ${{ github.event_name }} on ${{ github.repository }} repository"
 
 on:
