@@ -38,8 +38,8 @@ jobs:
           server_port: 465
           secure: true
           subject: Github Action Sucess
-          to: saadan060@gmail.com
-          from: saadan060@gmail.com
+          to: saadan06@gmail.com
+          from: saadan06@gmail.com
           body: The Workflow of repo, ${{github.repository}} initiated by ${{github.actor}} was sucessfully executed.
        
       - name: Notify on Failure
@@ -51,8 +51,8 @@ jobs:
           server_port: 465
           secure: true
           subject: Github Action Failure
-          to: ashhar.shah786@gmail.com
-          from: ashhar.shah786@gmail.com
+          to: saadan06@gmail.com
+          from: saadan06@gmail.com
           body: The Workflow of repo ${{github.repository}} initiated by ${{github.actor}} failed, kindly check the workflow logs!
 
 
