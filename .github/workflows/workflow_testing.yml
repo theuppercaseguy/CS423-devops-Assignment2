@@ -4,7 +4,7 @@ run-name: "execute by ${{ github.actor }} using ${{ github.event_name }} on ${{ 
 on:
   pull_request:
     branches:
-      - main:
+      - main
   workflow_dispatch:    
   
 jobs:
